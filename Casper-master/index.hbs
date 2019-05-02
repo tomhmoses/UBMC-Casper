@@ -1,0 +1,108 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- messenger plugin --}}
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v3.2'
+    });
+  };
+
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="140430949313711"
+  theme_color="#679FA8"
+  logged_in_greeting="Hi! Interested in joining us?"
+  logged_out_greeting="Hi! Interested in joining us?"
+  greeting_dialog_display="hide"
+  greeting_dialog_delay="15">
+</div>
+
+{{> header background=@site.cover_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
+    <div class="inner">
+        <div class="site-header-content">
+            <h1 class="site-title">
+                {{#if @site.logo}}
+                    <img class="site-logo" src="{{img_url @site.logo size="s"}}" alt="{{@site.title}}" />
+                {{else}}
+                    {{@site.title}}
+                {{/if}}
+            </h1>
+            <h2 class="site-description">{{@site.description}}</h2>
+        </div>
+        {{> "site-nav"}}
+    </div>
+</header>
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <div class="post-feed">
+<article class="post-card post no-image">
+
+
+    <div class="post-card-content">
+
+        <div class="post-card-content-link">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">Intro</span>
+                <h2 class="post-card-title">Welcome to the new UBMC website</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Here you can find all trip reports to read through! I'd reccomend starting by reading this years annual dinner trip report.</p>
+    <p>We will also post trip signups here but don't worry they will still be posted on the Facebook page too.</p>
+<p>If you have any suggestions contact me <a href="/suggestions/">here.</a></p>
+            </section>
+
+        </div>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        UBMC Media Sec
+                    </div>
+
+                        <a href="/author/ubmc/" class="static-avatar">
+                            <img class="author-profile-image" src="/content/images/size/w100/2019/04/UBMC-logo-3.png" alt="UBMC Media Sec" data-pagespeed-url-hash="1018703593" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time">1 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+            {{#foreach posts}}
+
+                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                {{> "post-card"}}
+
+            {{/foreach}}
+        </div>
+
+
+    </div>
+</main>
