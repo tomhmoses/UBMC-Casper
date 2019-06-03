@@ -35,14 +35,15 @@ into the {body} of the default.hbs template --}}
 {{> header background=@site.cover_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
     <div class="inner">
         <div class="site-header-content">
-            <h1 class="site-title">
-                {{#if @site.logo}}
+            {{#if @site.logo}}
+                <h1 class="site-title">
                     <img class="site-logo" style="opacity: 0.75;" src="{{img_url @site.logo size="s"}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </h1>
-            <h2 class="site-description">{{@site.description}}</h2>
+                </h1>
+                <h2 class="site-description">{{@site.title}}</h2>
+            {{else}}
+                <h1 class="site-title">{{@site.title}}</h1>
+                <h2 class="site-description">{{@site.description}}</h2>
+            {{/if}}            
         </div>
         {{> "site-nav"}}
     </div>
@@ -53,29 +54,6 @@ into the {body} of the default.hbs template --}}
     <div class="inner">
 
         <div class="post-feed">
-            <article class="post-card post no-image">
-
-
-                <div class="post-card-content">
-
-                    <div class="post-card-content-link">
-
-                        <header class="post-card-header">
-                                <span class="post-card-tags">Intro</span>
-                            <h2 class="post-card-title">Welcome to the new UBMC website</h2>
-                        </header>
-
-                        <section class="post-card-excerpt">
-                            <p>Here you can find all trip reports to read through! I'd reccomend starting by reading this years annual dinner trip report.</p>
-                <p>We will also post trip signups here but don't worry they will still be posted on the Facebook page too.</p>
-            <p>If you have any suggestions contact me <a href="/suggestions/">here.</a></p>
-                        </section>
-
-                    </div>
-
-                </div>
-
-            </article>
             {{#foreach posts}}
 
                 {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
