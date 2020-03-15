@@ -1,0 +1,473 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+<header class="site-header outer">
+    <div class="inner">
+        {{> "site-nav"}}
+    </div>
+</header>
+
+{{!-- styles for this page only --}}
+<style>
+
+    .committee-overlay-content {
+        max-height:80%;
+        overflow-y: auto;
+    }
+
+    .committee-overlay-short-description {
+        font-size: 2rem;
+    }
+
+    .committee-overlay-long-description {
+        font-size:14px;
+    }
+
+    .committee-overlay-name {
+        margin-bottom: 30px;
+    }
+
+    .committee-overlay-short-description {
+        margin-bottom: 20px;
+    }
+
+    @media (min-width:600px) {
+        .committee-overlay-content {
+            /* Never get larger than this */
+            font-size: 20px;
+        }
+
+        .committee-overlay-long-description {
+            /* Never get larger than this */
+            font-size: 20px;
+        }
+
+        .committee-overlay-short-description {
+            font-size: 3rem;
+        }
+    }
+
+    @media (max-width:600px) {
+        .committee-overlay-role {
+            font-size: 4rem;
+        }
+        .committee-overlay-name {
+            font-size: 4rem;
+        }
+    }
+    
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, .5);
+        -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+
+    .flexyrow {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .flexycolumn {
+      flex: 25%;
+      max-width: 25%;
+      padding: 0 20px;
+    }
+
+    .flexycolumn img {
+      margin-top: 8px;
+      vertical-align: middle;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 550px) {
+      .flexycolumn {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 300px) {
+      .flexycolumn {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .profile-card {
+        flex: 1 1 300px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        margin: 0 20px 40px;
+        background: #fff center center;
+        background-size: cover;
+        border-radius: 5px;
+        box-shadow: rgba(39,44,49,0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
+        transition: all 0.5s ease;
+    }
+
+    .profile-card:hover {
+        box-shadow: rgba(39,44,49,0.07) 8px 28px 50px, rgba(39, 44, 49, 0.04) 1px 6px 12px;
+        transition: all 0.4s ease;
+        transform: translate3D(0, -1px, 0) scale(1.02);
+    }
+
+    /* Adjust some margins for smaller screens */
+    @media (max-width: 650px) {
+        .profile-card {
+            margin: 0 20px 5vw;
+        }
+    }
+
+
+</style>
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+
+            <header class="post-full-header">
+                <h1 class="post-full-title">{{title}}</h1>
+            </header>
+
+            {{#if feature_image}}
+            <figure class="post-full-image">
+                {{!-- This is a responsive image, it loads different sizes depending on device
+                https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+                <img
+                    srcset="{{img_url feature_image size="s"}} 300w,
+                            {{img_url feature_image size="m"}} 600w,
+                            {{img_url feature_image size="l"}} 1000w,
+                            {{img_url feature_image size="xl"}} 2000w"
+                    sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px"
+                    src="{{img_url feature_image size="xl"}}"
+                    alt="{{title}}"
+                />
+            </figure>
+            {{/if}}
+
+            
+            {{!-- stuff for the custom image grid - made by Tom Moses --}}
+            <div style="margin-left: -30px">
+                <div class="flexyrow"> 
+                    <div class="flexycolumn">
+                        <a href="#pres"><img class="profile-card" src="https://i.ibb.co/Bsb6TNV/image.png"></a>
+                        <a href="#gear1"><img class="profile-card" src="https://i.ibb.co/Rgdyrbp/adrian.jpg"></a>
+                        <a href="#gear2"><img class="profile-card" src="https://i.ibb.co/28hh7tr/will.jpg"></a>
+                    </div>
+                    <div class="flexycolumn">
+                        <a href="#vp"><img class="profile-card" src="https://i.ibb.co/YjGXz7R/dan.jpg"></a>
+                        <a href="#team1"><img class="profile-card" src="https://i.ibb.co/smPLCmD/Alex.jpg"></a>
+                        <a href="#team2"><img class="profile-card" src="https://i.ibb.co/t4WWyNx/tomL.jpg"></a>
+                    </div> 
+                    <div class="flexycolumn">
+                        <a href="#secretary"><img class="profile-card" src="https://i.ibb.co/bNLYQkk/Alice.jpg"></a>
+                        <a href="#social1"><img class="profile-card" src="https://i.ibb.co/P6TkCx3/james.jpg"></a>
+                        <a href="#social2"><img class="profile-card" src="https://i.ibb.co/TLhWYhF/Katie.jpg"></a>
+                    </div>
+                    <div class="flexycolumn">
+                        <a href="#treasurer"><img class="profile-card" src="https://i.ibb.co/KzBV2JM/noah2.jpg"></a>
+                        <a href="#mountain"><img class="profile-card" src="https://i.ibb.co/rxDJjcc/matthew.jpg"></a>
+                        <a href="#media"><img class="profile-card" src="https://i.ibb.co/vxYvCMj/Tom.jpg"></a>
+                    </div>
+                </div>
+            </div>
+            {{!-- end of stuff for custom grid --}}
+
+        </article>
+
+    </div>
+</main>
+
+{{/post}}
+
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+$(function() {
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+});
+</script>
+
+<div id="pres" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">President:</h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">Piers Allen</h2>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            First up is our proficient president, Piers Allen himself.
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            Well known to those who have been around UoB for a longer duration, he is a more 'mature' member of UBMC.
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            Piers has always been a particularly passionate person in the club, professionally performing his past-time treasurer duties, and receiving the 'keenest fresher' award (way back in the day...). Rumours even suggest Piers was so keen, that he started driving the mini bus to trips before he even started uni. His climbing strengths mainly include mini-bus driving capabilities, although vast outdoor climbing experience is also a plus - the majority of which has no doubt been learned from the many generations to pass him. 
+            <br>
+            <br>
+            Contact Piers: <a href="mailto: president@ubmc.co.uk">president@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="vp" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Vice President: </h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">Dan Pearce</h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            Policing the safety of the club this year is the wonderful Dan Pearce!
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            Continuing the tradition of at least the last 5 VP’s, he has risen from his previous position last year of gear sec!   Ensuring the club didn’t loose gear last year he is perfect to graduate to the responsibility of ensuring we don’t lose any members this year!
+            <br>
+            <br>
+            He studies Geography so we all know he has a lot of time to dedicate to the club.  Well known for his ability to make a fool of himself at socials he’s always up for a laugh, even after only one pint…  So there is no one better to ensure an awesome summer trip and year ahead!
+            <br>
+            <br>
+            Need some advice on best safety practice at the crag or on how its not possible to have too much gear for a trad route? 
+            <br>
+            <br>
+            Contact Dan: <a href="mailto: vp@ubmc.co.uk">vp@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="secretary" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Secretary:</h1>
+        <br>
+        <h2 class="subscribe-overlay-title committee-overlay-name">
+            Alice Purdy
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            Last year’s treasurer got bored of hoarding all the money and this year Alice Purdy is taking on the mantle on running admin for the club!
+        </p>
+        
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            Have efficiently kept the club in the positive it’s a sure sign that we are in safe hands this year.  If she ever mentions a coup for the presidency, we know she is only joking, and would never seriously organise it, I hope…  The organisation she showed managing many different account will be very useful for the role of secretary, looking after our membership and insurance!
+            <br>
+            <br>
+            She is about as enthusiastic as you can get with all things climbing and you will never fail to hear her at the crag shouting about something!  If you want any info about membership or your club insurance or simply want some advice on costumes for socials (she’s good at them) contact Alice
+            : <a href="mailto: secretary@ubmc.co.uk">secretary@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="treasurer" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Treasurer:</h1>
+        <br>
+        <h2 class="subscribe-overlay-title committee-overlay-name">
+            Noah Tattersall
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            The man in charge of keeping the club afloat this year is Noah Tattersall, this is his first time on committee, but with much psyche he will for sure do well.
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            A relatively new climber, his expertise has increased dramatically over the last year, becoming a very competent trad leader. So you're in safe hands if he's taking you out to a crag.
+            <br>
+            <br>
+            If you're at redpoint and you need to find him, just look up, guaranteed Noah will hanging off the green by the stalactite, his nemesis in the centre. If you ever catch him looking at greenery oddly, just know it's because of an incident he had walking back from Snobs one night. A certain bush ate him and it was not forgiving.
+            <br>
+            <br>
+            If you want money advice, or have spent all your student loan, maybe go to a bank. But if you want to learn how club finances work, or how we spend all your money contact Noah: <a href="mailto: treasurer@ubmc.co.uk">treasurer@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="mountain" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Mountain Sec:</h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">
+            Matthew Bilella
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            The responsibilities of Mountain sec have fallen to Matthew Bilella this year, having gained a reputation at last years Scotland, there was no question about this appointment.
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            Ask him about his bus preferences some time...  He loves a good nap wherever he can find a comfortable spot but also will take you out in all conditions, guaranteeing you a great day!
+            <br>
+            <br>
+            Matthew has previously worked in a climbing centre and has all the gear to remind you, but is also trained in many aspects of indoor and outdoor climbing and happy to pass his knowledge on.  A very useful source of information to utilise!
+            <br>
+            <br>
+            Got any questions about the Scotland trip or just fancy discussing all things alpinism? Contact Matthew: <a href="mailto: mountain@ubmc.co.uk">mountain@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="gear1" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Gear Sec:</h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">
+            Adrian Scott
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            The first half of this years gear sec team is Adrian Scott, a man who jumped from HVS to E3!
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            Having got the taste for trad at Pembroke, he can now be found cleaning and sorting gear instead of studying maths!  This year he was given the award of most helpful non-committee member, attending and teaching at nearly every redpoint, by choice! This is a sure fire sign that he will be a great addition to the team.
+            <br>
+            <br>
+            A budding alpinist and all round knowledgeable climber, Adrian has become a valuable member of the club.  For any enquiries about gear safety or if you want to borrow some contact him or Will at: <a href="mailto: gear@ubmc.co.uk">gear@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="gear2" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Gear Sec:</h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">
+            Will Keeley
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            Lank is a term used by short people in irritance, Will Keeley, our second gear sec, is the epitome of this.
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            Like his gear mate, he’s racing up the grades and crushing tricky routes but will happily still through grimy holes for the freshers benefits.
+            <br>
+            <br>
+            Him and Adrian are like two peas in a pod, not wanting to be too far apart at any time, he even put up with an unwashed Adrian for a week in a tent!  This team work will surely means that the club gear is in good hands for the next year.
+            <br>
+            <br>
+            For any enquiries about gear safety or if you want to borrow some contact him or Adrain at: <a href="mailto: gear@ubmc.co.uk">gear@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="team1" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Team Sec:</h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">
+            Alex Slaughter
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            First half of perhaps the most awesomely named duo the clubs had in years is Alex Slaughter.
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            A new addition to the team last year but already crushing it at the competitions and even venturing outdoors, an odd trait for a team captain!  Do I dare mention trad under the team sec role, yes he’s learned and enjoys it! Keen to bring in the possibility of a lead comp i’m sure the team will have an exciting year under his mentorship!
+            <br>
+            <br>
+            Often found at the depot he’s guaranteed to make you want to improve.  Looking to improve your style on the wall or get some info on training techniques, Alex is your man. Contact either him or his other half at <a href="mailto: team@ubmc.co.uk">team@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="team2" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Team Sec:</h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">
+            Tom Lightning
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            The other half of our training gurus is Tom Lightning, more a trad climber than competitor, he is going to drag the team to the outside world! Having recently showed the crack climbing god Tom Randall a new technique, we should all aim to learn from him.
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            If you want information on some of the amazing trips you can have climbing just ask Tom about his summer, its one we are all jealous of!  He jokes he was blackmailed onto committee, but I assure you he wasn’t… A fresher to club last year and already well integrated he’s a good one to get to know.  Also, he’s a medic, so he’s going to be around forever. 
+            <br>
+            <br>
+            If you want to get an idea of how the team runs, or anything to do with climbing, or just want a friendly chat, Tom’s the one to call.  Contact either him or his other half at: <a href="mailto: team@ubmc.co.uk">team@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="social1" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Social Sec:</h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">
+            James Mason
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            Our first resident social sec is James Mason.   This year it has been promised that there will be amazing fancy dress and new sober and drunk socials!
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            There is even talk of more sports nights!  He’s not afraid to have your back on club nights and always has the clubs safety in mind.
+            <br>
+            <br>
+            When it comes to the safety of his own gear, James has been known to get confused about how gear works opting to not place it because he didn’t think it would hold him - this has since been rectified.   And whatever you do, don’t ask him about his first ever rope.
+            <br>
+            <br>
+            The socials are in safe hands this year and should be lots of fun.  If you want any information on what’s happening contact Katie or James: <a href="mailto: social@ubmc.co.uk">social@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="social2" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Social Sec:</h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">
+            Katie Norris
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            Katie Norris is the other half of our social team.  Even though she is new to the idea of trad and gear was thought to be unnecessary i assure you, your safe in her hands!
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            If you need backup on a night out, shout for Katie, she’ll be sure to do whatever is necessary to help.  Don’t be fooled by her sweet demenna, she will happily start a fight in your honor. 
+            <br>
+            <br>
+            The socials are in safe hands this year and should be lots of fun.  If you want any information on what’s happening contact Katie or James: <a href="mailto: social@ubmc.co.uk">social@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+
+<div id="media" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content committee-overlay-content">
+            <img class="subscribe-overlay-logo" src="/content/images/2019/03/UBMC-logo-3-WHITE.png" alt="UBMC">
+        <h1 class="subscribe-overlay-title committee-overlay-role">Media Sec:</h1>
+        <br><h2 class="subscribe-overlay-title committee-overlay-name">
+            Tom Moses
+        </h2>
+        <p class="subscribe-overlay-description committee-overlay-short-description">
+            This years media sec is Tom Moses and we couldn’t be in better hands.
+        </p>
+        <p class="subscribe-overlay-description committee-overlay-long-description">
+            A man who already has his own business and website, he has big plans!  Going into his second year of his computer science degree, there is no man better to be in charge of all the tech aspects of club. 
+            <br>
+            <br>
+            An item on his rack you may spy is his drone, guaranteeing our Instagram is going to be on fire this year!  And being the designer of the new website he is already proving his worth - He’s still looking for feedback.  
+            <br>
+            <br>
+            If you’ve got any great pictures from club trips or want some stylised shots taken of you climbing hard, contact Tom: <a href="mailto: media@ubmc.co.uk">media@ubmc.co.uk</a>
+        </p>
+    </div>
+</div>
+{{/contentFor}}

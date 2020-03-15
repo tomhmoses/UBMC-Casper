@@ -1,11 +1,11 @@
 {
-    "name": "casper",
+    "name": "casper-ubmc",
     "description": "The default personal blogging theme for Ghost. Beautiful, minimal and responsive.",
     "demo": "https://demo.ghost.io",
-    "version": "2.9.10",
+    "version": "3.0.10",
     "engines": {
-        "ghost": ">=2.0.0",
-        "ghost-api": "v2"
+        "ghost": ">=3.0.0",
+        "ghost-api": "v3"
     },
     "license": "MIT",
     "screenshots": {
