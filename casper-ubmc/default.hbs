@@ -26,52 +26,7 @@
         {{{body}}}
 
         {{!-- The footer at the very bottom of the screen --}}
-        <footer class="site-footer outer" style="padding-top:30px;">
-            <div class="site-footer-content inner" style="padding-bottom:30px;padding-left:10px;padding-right:10px;">
-                <a href="https://www.rebrandly.com/" style="padding-left: 20px;padding-right:20px;padding-bottom:20px;">
-                    <img src="https://www.rebrandly.com/images/URL-Shortener.fileextension.svg" height="38" alt="Rebrandly | URL Shortener and Link Shortener" title="Rebrandly | Link Shortener and URL Shortener">
-                </a>
-                <a href="https://www.montane.co.uk/" style="padding-left: 20px;padding-right:20px;padding-bottom:20px;">
-                    <img src="https://www.montane.co.uk/images/modules/promo_units/1530536465-52158700.png" height="38" alt="Montane" title="Montane">
-                </a>
-                <a href="https://www.birmingham.ac.uk/" style="padding-left: 20px;padding-right:20px;padding-bottom:20px;">
-                    <img src="https://i.ibb.co/ZzGgkTn/university-of-birmingham-No-BG.png" height="38" alt="University of Birmingham" title="University of Birmingham">
-                </a>
-                <!-- Begin Link to BMC -->
-                <a href="http://www.thebmc.co.uk/insurance" target="_blank" style="padding-left: 20px;padding-right:20px;padding-bottom:20px;">
-                    <img src="https://i.ibb.co/98R0YQZ/bmcclear2.png" height="38" alt="BMC Affiliated Club" title="BMC Affiliated Club">
-                </a>
-                <!-- End Link to BMC -->
-                <a href="https://www.digitalocean.com/" style="padding-left: 20px;padding-right:20px;padding-bottom:20px;">
-                    <img src="https://i.ibb.co/0VtGgz9/DO-Logo-Horizontal-Blue.png" height="38" alt="DigitalOcean Logo" title="DigitalOcean">
-                </a>
-                <a href="https://www.sportandfitness.bham.ac.uk/student-sport/clubs/mountaineering/" style="padding-left: 20px;padding-right:20px;padding-bottom:20px;">
-                    <img src="https://i.ibb.co/9rQSBC1/sport-clear.png" height="38" alt="Universiry of Birmigham Sport Logo" title="Universiry of Birmigham Sport">
-                </a>
-                <a href="https://tenzingnaturalenergy.com/" style="padding-left: 20px;padding-right:20px;padding-bottom:20px;">
-                    <img src="https://i.ibb.co/kJ97DQC/tenzing-orig.png" height="38" alt="Tenzing Drink Logo" title="Tenzing Drink">
-                </a>
-                <a href="https://www.psychi.co.uk/" style="padding-left: 20px;padding-right:20px;padding-bottom:20px;">
-                    <img src="https://i.ibb.co/0GcRyPD/Psychi-clear.png" height="38" alt="Psychi Logo" title="Psychi">
-                </a>
-                <a href="https://www.guildofstudents.com/organisation/mountaineering/" style="padding-left: 20px;padding-right:20px;padding-bottom:20px;">
-                    <img src="https://i.ibb.co/0q4bvMG/guildlogo-clear.png" height="38" alt="Guild of Students Logo" title="Guild of Students">
-                </a>
-
-            </div>
-            <div class="site-footer-content inner">
-                <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
-                <nav class="site-footer-nav">
-                    <a href="{{@site.url}}">Latest Posts</a>
-                    <a href="{{@site.url}}/ghost">Editor Login</a>
-                    {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
-                    {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
-                    <a href="https://www.instagram.com/UoBMountaineering/" target="_blank" rel="noopener">Instagram</a>
-                </nav>
-            </div>
-            <div class="site-footer-content inner">
-                <p>Site by <a href="https://www.tmoses.co.uk">Tom Moses</a>, using <a href ="https://ghost.org/">Ghost.org</a></p>
-        </footer>
+        {{> footer}}
 
     </div>
 
