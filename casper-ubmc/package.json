@@ -1,8 +1,8 @@
 {
     "name": "casper-ubmc",
     "description": "Customised by Tom Moses",
-    "demo": "https://demo.ghost.io",
-    "version": "3.0.13",
+    "demo": "https://www.ubmc.co.uk",
+    "version": "3.0.14",
     "engines": {
         "ghost": ">=3.0.0",
         "ghost-api": "v3"
@@ -22,9 +22,9 @@
         "postship": "git fetch && gulp release"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org"
+        "name": "Tom Moses & Ghost Foundation",
+        "email": "tom@tmoses.co.uk",
+        "url": "https://www.tmoses.co.uk"
     },
     "gpm": {
         "type": "theme",
@@ -40,10 +40,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Casper.git"
+        "url": "https://github.com/tomhmoses/UBMC-Casper.git"
     },
-    "bugs": "https://github.com/TryGhost/Casper/issues",
-    "contributors": "https://github.com/TryGhost/Casper/graphs/contributors",
+    "bugs": "https://github.com/tomhmoses/UBMC-Casper/issues",
+    "contributors": "https://github.com/tomhmoses/UBMC-Casper/graphs/contributors",
     "devDependencies": {
         "@tryghost/release-utils": "0.4.1",
         "autoprefixer": "9.7.4",
