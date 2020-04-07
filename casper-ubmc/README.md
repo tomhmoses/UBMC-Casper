@@ -1,10 +1,10 @@
-# Casper
+# Casper-UBMC
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper. If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
+Customised from default theme for [Ghost](http://github.com/tryghost/ghost/). This is the version that we use on the [UBMC](https://www.ubmc.co.uk/) website.
 
 &nbsp;
 
-![screenshot-desktop](https://user-images.githubusercontent.com/120485/27221326-1e31d326-5280-11e7-866d-82d550a7683b.jpg)
+![screenshot-desktop](https://i.ibb.co/2sTbDKy/image.png)
 
 &nbsp;
 
