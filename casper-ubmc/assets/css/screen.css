@@ -276,10 +276,23 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 
 .site-nav-right {
-    flex-shrink: 0;
+    flex: 1 0 auto;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     height: 40px;
+}
+
+.site-nav-right .nav {
+    position: relative;
+}
+
+.site-nav-right .nav a:before {
+    display: none;
+}
+
+.site-nav-right .nav li:last-of-type a {
+    margin-right: -12px;
 }
 
 .social-links {
@@ -341,6 +354,10 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .subscribe-button:hover {
     text-decoration: none;
     opacity: 1;
+}
+
+.site-nav-right .nav + .subscribe-button {
+    margin-left: 24px;
 }
 
 .rss-button {
