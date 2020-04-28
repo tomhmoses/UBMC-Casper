@@ -12,3 +12,4 @@ This is a modified version of Ghost's standard theme casper.
 - Google analytics
 - Custom Committee page
 - Changed footer links
+- Darkmode
