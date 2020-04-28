@@ -12,15 +12,12 @@
         {{/if}}
     </div>
     <div class="site-nav-right">
-        {{#if @site.secondary_navigation}}
-            {{navigation type="secondary"}}
-        {{/if}}
         <div class="social-links">
             {{#if @site.facebook}}
                 <a class="social-link social-link-fb" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
             {{/if}}
-            <a class="social-link social-link-fb" href="https://www.instagram.com/UoBMountaineering/" title="Instagram" target="_blank" rel="noopener">{{> "icons/instagram"}}</a>
-            <a class="social-link social-link-fb" href="https://m.me/UBMCstoats" title="Messenger" target="_blank" rel="noopener">{{> "icons/messenger"}}</a>
+            <a class="social-link social-link-fb" href="https://www.instagram.com/UBMCStoats/" title="Instagram" target="_blank" rel="noopener">{{> "icons/instagram"}}</a>
+            <a class="social-link social-link-fb" href="https://m.me/UBMCStoats" title="Messenger" target="_blank" rel="noopener">{{> "icons/messenger"}}</a>
             {{#if @site.twitter}}
                 <a class="social-link social-link-tw" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
             {{/if}}
