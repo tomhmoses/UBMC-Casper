@@ -14,6 +14,13 @@
     {{!-- Styles'n'Scripts --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
 
+    {{!-- PWA --}}
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#679fa8">
+    <link rel="apple-touch-icon" href="{{asset "built/icon-192x192.png"}}">
+    {{!-- PWA iOS Navbar --}}
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
 
@@ -66,8 +73,17 @@
     <script type="text/javascript" src="{{asset "built/jquery.fitvids.js"}}"></script>
 
     {{#if pagination.pages}}
-    <script src="{{asset "built/infinitescroll.js"}}"></script>
+        <script src="{{asset "built/infinitescroll.js"}}"></script>
     {{/if}}
+
+    {{!-- Service Worker for PWA --}}
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}

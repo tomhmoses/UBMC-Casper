@@ -1,0 +1,21 @@
+{
+    "name": "University of Birmingham Mountaineering and Climbing Club",
+    "short_name": "UBMC",
+    "description": "UBMC - University of Birmingham Mountaineering and Climbing Club",
+    "lang": "en",
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "theme_color": "#679fa8",
+    "icons": [{
+            "src": "/assets/built/icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/assets/built/icon-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
