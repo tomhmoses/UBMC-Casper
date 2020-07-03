@@ -357,6 +357,20 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     opacity: 1;
 }
 
+.join-button {
+    border: 1px solid #679fa8;
+    background-color: #679fa8;
+    padding: 6px 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+.join-button:hover {
+    transition: all 0.4s ease;
+    transform: translate3D(0, -1px, 0) scale(1.02);
+}
+
 .site-nav-right .nav + .subscribe-button {
     margin-left: 24px;
 }
